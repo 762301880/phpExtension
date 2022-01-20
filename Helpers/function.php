@@ -49,3 +49,23 @@ if (!function_exists('httpPost')) {
         return $data;
     }
 }
+
+/**
+ * https://www.cnblogs.com/yaoliuyang/p/14648363.html
+ * 打印原生sql 语句
+ */
+if (!function_exists('sql_dump')) {
+    function sql_dump()
+    {
+        \DB::listen(function ($sql) {
+            $i = 0;
+            $bindings = $sql->bindings;
+            $rawSql = preg_replace_callback('/\?/', function ($matches) use ($bindings, &$i) {
+                $item = isset($bindings[$i]) ? $bindings[$i] : $matches[0];
+                $i++;
+                return gettype($item) == 'string' ? "'$item'" : $item;
+            }, $sql->sql);
+            echo $rawSql, "\n<br /><br />\n";
+        });
+    }
+}
