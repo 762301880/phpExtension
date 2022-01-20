@@ -35,6 +35,11 @@ trait ModelExtensionMethod
     {
         $columns = is_array($columns) ? $columns : (array)$columns;
         $modelColumns = self::getColumnListing();
+        $tempColumns=array_diff($columns, $modelColumns);
+        $errorColumns=implode('、',$tempColumns);
+        if (count(array_diff($columns, $modelColumns)) > 0) {
+            trigger_error('字段'.$errorColumns.'不存在于数据表'.self::getTableName());
+        }
         return self::select(array_diff($modelColumns, $columns));
     }
 }
