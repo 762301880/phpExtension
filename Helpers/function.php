@@ -12,6 +12,19 @@ if (!function_exists('encryptPhoneNumber')) {
     }
 }
 
+if (!function_exists('isPhoneNumber')) {
+
+    /** 判断是否是手机号码
+     * @param $phoneNumber
+     * @return bool
+     */
+    function isPhoneNumber($phoneNumber)
+    {
+        return preg_match('/^[0-9]{7,15}$/', $phoneNumber) > 0;
+    }
+}
+
+
 if (!function_exists('httpPost')) {
     /**
      * 远程http请求
