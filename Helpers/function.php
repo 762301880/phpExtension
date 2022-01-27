@@ -65,7 +65,12 @@ if (!function_exists('sql_dump')) {
                 $i++;
                 return gettype($item) == 'string' ? "'$item'" : $item;
             }, $sql->sql);
-            echo $rawSql, "\n<br /><br />\n";
+
+            $sql_time = $sql->time; # sql执行时间
+            # 打印返回sql原生语句 & sql执行时间
+            echo $rawSql, "\n<br /><br />\n"
+                .
+                "<strong style='color: #AA3333'>sql_run_time:</strong>  " . "<span style='font-style: italic;color: #1e7e34'>$sql_time</span>";
         });
     }
 }
