@@ -27,7 +27,7 @@ trait ApplyResponseLayout
      * @param int $code
      * @return \Illuminate\Http\JsonResponse
      */
-    protected function error($errorMsg = 'error', $data = [], $code = 5000)
+    protected function error($errorMsg = 'error', $data = [], $code = 503)
     {
         return response()->json(['code' => $code, 'msg' => $errorMsg, 'data' => $data]);
     }
