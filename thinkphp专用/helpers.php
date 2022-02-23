@@ -1,6 +1,6 @@
 <?php
 
-if (!file_exists('getLastSql')) {
+if (!function_exists('getLastSql')) {
     function getLastSql()
     {
         \think\facade\Db::listen(function($sql, $time, $explain){
