@@ -13,11 +13,8 @@ trait ApplyResponseLayout
      * @param array $data
      * @param int $code
      */
-    protected function success($successMsg = 'success', $data = [], $code = 200)
+    protected function success($data = [], $successMsg = 'success', $code = 200)
     {
-        if (empty($successMsg)) {
-            $successMsg = 'success';
-        }
         return json(['code' => $code, 'msg' => $successMsg, 'data' => $data]);
     }
 
@@ -28,11 +25,8 @@ trait ApplyResponseLayout
      * @param array $data
      * @param int $code
      */
-    protected function error($errorMsg = 'error', $data = [], $code = 503)
+    protected function error($errorMsg = 'error', $data = [], $code = 400)
     {
-        if (empty($successMsg)) {
-            $successMsg = 'error';
-        }
         return json(['code' => $code, 'msg' => $errorMsg, 'data' => $data]);
     }
 
