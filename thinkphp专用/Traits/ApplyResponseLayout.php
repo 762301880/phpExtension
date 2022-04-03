@@ -1,7 +1,7 @@
 <?php
 
 
-namespace app\Traits;
+namespace traits;
 
 
 trait ApplyResponseLayout
@@ -13,9 +13,9 @@ trait ApplyResponseLayout
      * @param array $data
      * @param int $code
      */
-    protected function success($data = [], $successMsg = 'success', $code = 200)
+    protected function resSuccess($data = [], $successMsg = 'success', $code = 200)
     {
-        return json(['code' => $code, 'msg' => $successMsg, 'data' => $data]);
+        return json(['code' => $code, 'msg' => $successMsg, 'data' => !empty($data) ? $data : []]);
     }
 
 
@@ -25,9 +25,9 @@ trait ApplyResponseLayout
      * @param array $data
      * @param int $code
      */
-    protected function error($errorMsg = 'error', $data = [], $code = 400)
+    protected function resError($errorMsg = 'error', $data = [], $code = 400)
     {
-        return json(['code' => $code, 'msg' => $errorMsg, 'data' => $data]);
+        return json(['code' => $code, 'msg' => $errorMsg, 'data' => !empty($data) ? $data : []]);
     }
 
 }
