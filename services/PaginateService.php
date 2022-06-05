@@ -7,6 +7,15 @@ namespace app\common\service;
 class PaginateService
 {
     /**
+     * 页码默认长度
+     */
+    const PAGE_DEFAULT = 1;
+    /**
+     * 每页现实条数默认
+     */
+    const LIMIT_DEFAULT = 10;
+
+    /**
      * 添加分页返回封装数据(小程序)
      * @param $data
      * @return mixed
