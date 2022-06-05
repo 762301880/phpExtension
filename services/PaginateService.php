@@ -11,7 +11,7 @@ class PaginateService
      */
     const PAGE_DEFAULT = 1;
     /**
-     * 每页现实条数默认
+     * 每页显示条数默认
      */
     const LIMIT_DEFAULT = 10;
 
