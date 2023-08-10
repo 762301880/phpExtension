@@ -17,6 +17,9 @@ trait ApplyResponseLayout
      */
     protected function success($data = [], $successMsg = 'success', $code = 200)
     {
+        if (!is_bool($data) && empty($data)) {
+            $data = [];
+        }
         return response()->json(['code' => $code, 'msg' => $successMsg, 'data' => $data]);
     }
 
@@ -30,6 +33,9 @@ trait ApplyResponseLayout
      */
     protected function error($errorMsg = 'error', $data = [], $code = 400)
     {
+        if (!is_bool($data) && empty($data)) {
+            $data = [];
+        }
         return response()->json(['code' => $code, 'msg' => $errorMsg, 'data' => $data]);
     }
 
