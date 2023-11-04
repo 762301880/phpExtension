@@ -12,13 +12,20 @@ if (!function_exists('encryptPhoneNumber')) {
 }
 
 /** 判断是否是手机号码
+ * 首先，我们来解释一下这个正则表达式的各个部分：
+ * ^ 表示字符串的开始。
+ * 1 表示手机号码的第一个数字必须是1。
+ * [3-9] 表示第二个数字可以是3到9之间的任意一个数字。
+ * \d{9} 表示接下来有9个数字，其中 \d 表示任意一个数字，{9} 表示前面的字符（这里是数字）必须出现9次。
+ *  $ 表示字符串的结束。
+ *  所以，整个正则表达式的意思是：从字符串开始到结束，第一个数字是1，第二个数字是3到9之间的任意一个数字，后面跟着9个数字，这样就符合中国大陆手机号码的格式。
  * @param $phoneNumber
  * @return bool
  */
 if (!function_exists('isPhoneNumber')) {
-    function isPhoneNumber($phoneNumber)
-    {
-        return preg_match('/^[0-9]{7,15}$/', $phoneNumber) > 0;
+    function isPhoneNumber($phone) {
+        $pattern = '/^1[3-9]\d{9}$/';
+        return preg_match($pattern, $phone);
     }
 }
 
