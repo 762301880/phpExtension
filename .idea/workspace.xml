@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e691ba74-7053-4649-9b63-6021d4279e1c" name="Default Changelist" comment="">
+    <list default="true" id="d280f2d1-84be-4d01-9655-bb1ae857332a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Helpers/function.php" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/function.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +15,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="2QUpfL8p9UMFalnLkK4O5ratYge" />
+  <component name="ProjectId" id="2svABTPdR0oi0xzZ7kHSR42g7V6" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -26,20 +25,23 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e691ba74-7053-4649-9b63-6021d4279e1c" name="Default Changelist" comment="" />
-      <created>1685418116434</created>
+      <changelist id="d280f2d1-84be-4d01-9655-bb1ae857332a" name="Default Changelist" comment="" />
+      <created>1739325539478</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1685418116434</updated>
-      <workItem from="1685418117517" duration="9000" />
-      <workItem from="1699081471425" duration="7000" />
-      <workItem from="1699081973717" duration="64000" />
+      <updated>1739325539478</updated>
+      <workItem from="1739325542034" duration="1920000" />
     </task>
     <servers />
   </component>
@@ -56,6 +58,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

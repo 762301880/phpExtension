@@ -123,3 +123,14 @@ if (!function_exists('getBeforeTime')) {
         return date('Y-m-d H:i:s', $time); //超过100年返回具体时间
     }
 }
+/**
+ * 判断是否是json格式
+ */
+if (!function_exists('isJson')) {
+
+    function isJson($string)
+    {
+        json_decode($string);
+        return (json_last_error() === JSON_ERROR_NONE);
+    }
+}
