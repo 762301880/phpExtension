@@ -6,7 +6,7 @@ namespace App\Services\Abs;
 
 abstract class CommonService
 {
-    private static $instances = [];
+    private static $instances = []; //必须将静态属性初始化为数组 []，才能当作数组来使用。否则它默认是 null，不能当成数组操作，就会出错。
 
     /**
      * service继承后 不必实例化方法可直接调用
