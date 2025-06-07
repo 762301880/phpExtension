@@ -17,6 +17,8 @@ abstract class CommonService
     public static function getInstance()
     {
         $class = static::class;
+        //https://www.cainiaoplus.com/php/php-function-get-called-class.html
+        #$class = get_called_class(); // 获取调用类名
         if (!isset(self::$instances[$class])) {
             self::$instances[$class] = new static();
         }
