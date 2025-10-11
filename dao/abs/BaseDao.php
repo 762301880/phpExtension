@@ -16,18 +16,32 @@ abstract class BaseDao
      * 获取模型实例
      * @return Model
      */
+//    protected static function getModel(): Model
+//    {
+//        static $model = null;
+//        if (!$model) {
+//            $modelName = static::model(); // 正确调用静态方法
+//            $modelInstance = new $modelName();
+//            if (!$modelInstance instanceof Model) {
+//                throw new \RuntimeException("Model must be an instance of think\\Model");
+//            }
+//            $model = $modelInstance;
+//        }
+//        return $model;
+//    }
+
     protected static function getModel(): Model
     {
-        static $model = null;
-        if (!$model) {
-            $modelName = static::model(); // 正确调用静态方法
+        static $models = [];
+        $modelName = static::model();
+        if (!isset($models[$modelName])) {
             $modelInstance = new $modelName();
             if (!$modelInstance instanceof Model) {
                 throw new \RuntimeException("Model must be an instance of think\\Model");
             }
-            $model = $modelInstance;
+            $models[$modelName] = $modelInstance;
         }
-        return $model;
+        return $models[$modelName];
     }
 
     /**
