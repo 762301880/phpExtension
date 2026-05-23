@@ -13,27 +13,21 @@ trait ApplyResponseLayout
      * @param array $data
      * @param int $code
      */
-    protected function resSuccess($data = [], $successMsg = 'success', $code = 200)
+    protected function resSuccess($successMsg = 'success', $data = [])
     {
-        if (!is_bool($data) && empty($data)) {
-            $data = [];
-        }
-        return json(['code' => $code, 'msg' => $successMsg, 'data' => $data]);
+        return json(['code' => 0, 'msg' => $successMsg, 'data' => $data]);
     }
 
 
     /**
      * 错误返回
      * @param null $errorMsg
-     * @param array $data
+     * //为什么参数里面没有data因为错误只返回信息
      * @param int $code
      */
-    protected function resError($errorMsg = 'error', $data = [], $code = 400)
+    protected function resError($errorMsg = 'error', $code = 1000)
     {
-        if (!is_bool($data) && empty($data)) {
-            $data = [];
-        }
-        return json(['code' => $code, 'msg' => $errorMsg, 'data' => $data]);
+        return json(['code' => $code, 'msg' => $errorMsg, 'data' => null]);
     }
 
 }
