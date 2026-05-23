@@ -1,42 +1,38 @@
 <?php
 
-
 namespace App\Traits;
-
 
 trait ApplyResponseLayout
 {
-
     /**
-     * 成功返回
-     * 这里解释一下为什么要把data数组返回放在最前面应为我们希望成功之后最常用的返回就是数据
-     * @param string $successMsg
-     * @param array $data
-     * @param int $code
+     * 成功响应
+     * @param string $msg 提示信息
+     * @param array $data 返回数据
+     * @param int $httpCode HTTP 状态码
      * @return \Illuminate\Http\JsonResponse
      */
-    protected function success($data = [], $successMsg = 'success', $code = 200)
+    protected function success($msg = '操作成功', $data = [], $httpCode = 200)
     {
-        if (!is_bool($data) && empty($data)) {
-            $data = [];
-        }
-        return response()->json(['code' => $code, 'msg' => $successMsg, 'data' => $data]);
+        return response()->json([
+            'code' => 0,       // 业务码：0 = 成功
+            'msg' => $msg,
+            'data' => $data
+        ], $httpCode);
     }
-
 
     /**
-     * 错误返回
-     * @param null $errorMsg
-     * @param array $data
-     * @param int $code
+     * 错误响应
+     * @param string $msg 错误信息
+     * @param int $businessCode 业务错误码
+     * @param int $httpCode HTTP 状态码
      * @return \Illuminate\Http\JsonResponse
      */
-    protected function error($errorMsg = 'error', $data = [], $code = 400)
+    protected function error($msg = '操作失败', $businessCode = 1000, $httpCode = 400)
     {
-        if (!is_bool($data) && empty($data)) {
-            $data = [];
-        }
-        return response()->json(['code' => $code, 'msg' => $errorMsg, 'data' => $data]);
+        return response()->json([
+            'code' => $businessCode, // 业务错误码（前端判断用）
+            'msg' => $msg,
+            'data' => null
+        ], $httpCode);
     }
-
 }
