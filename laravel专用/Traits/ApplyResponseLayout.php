@@ -2,6 +2,9 @@
 
 namespace App\Traits;
 
+use App\Enums\BusinessCodeEnum;
+use App\Enums\HttpCodeEnum;
+
 trait ApplyResponseLayout
 {
     /**
@@ -11,10 +14,10 @@ trait ApplyResponseLayout
      * @param int $httpCode HTTP 状态码
      * @return \Illuminate\Http\JsonResponse
      */
-    protected function success($msg = '操作成功', $data = [], $httpCode = 200)
+    protected function success($msg = '操作成功', $data = [], $httpCode = HttpCodeEnum::SUCCESS)
     {
         return response()->json([
-            'code' => 0,       // 业务码：0 = 成功
+            'code' => BusinessCodeEnum::SUCCESS,       // 业务码：0 = 成功
             'msg' => $msg,
             'data' => $data
         ], $httpCode);
@@ -27,7 +30,7 @@ trait ApplyResponseLayout
      * @param int $httpCode HTTP 状态码
      * @return \Illuminate\Http\JsonResponse
      */
-    protected function error($msg = '操作失败', $businessCode = 1000, $httpCode = 400)
+    protected function error($msg = '操作失败', $businessCode = BusinessCodeEnum::BAD_REQUEST, $httpCode = HttpCodeEnum::BAD_REQUEST)
     {
         return response()->json([
             'code' => $businessCode, // 业务错误码（前端判断用）
